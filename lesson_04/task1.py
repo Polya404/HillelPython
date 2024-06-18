@@ -7,13 +7,11 @@ for num in list_of_numbers:
     list_of_numbers.remove(0)
 list_of_numbers.extend([0] * zeros)
 
-
-
 ##### second solution #####
-for num in range(len(list_of_numbers_2)):
-    if list_of_numbers_2[num] == 0:
-        list_of_numbers_2.insert(len(list_of_numbers_2), list_of_numbers_2[num])
-        list_of_numbers_2.remove(list_of_numbers_2[num])
+for i, num in enumerate(list_of_numbers_2):
+    if num == 0:
+        list_of_numbers_2.insert(len(list_of_numbers_2), num)
+        list_of_numbers_2.remove(num)
 
 print(list_of_numbers)
 print(list_of_numbers_2)
