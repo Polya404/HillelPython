@@ -1,5 +1,5 @@
 def difference(*args):
-    if args.__len__() == 0:
+    if len(args) == 0:
         return 0
     else:
         return round(max(args) - min(args), 2)
