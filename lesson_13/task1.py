@@ -1,3 +1,9 @@
+class GroupFullError(Exception):
+    def __init__(self, message="Cannot add more than 10 students to the group."):
+        self.message = message
+        super().__init__(self.message)
+
+
 class Human:
 
     def __init__(self, gender, age, first_name, last_name):
@@ -27,6 +33,8 @@ class Group:
         self.group = set()
 
     def add_student(self, student):
+        if len(self.group) >= 10:
+            raise GroupFullError()
         self.group.add(student)
 
     def delete_student(self, last_name):
@@ -59,3 +67,26 @@ gr.delete_student('Taylor')
 print(gr)  # Only one student
 
 gr.delete_student('Taylor')  # No error!
+
+st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
+st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
+st3 = Student('Male', 22, 'John', 'Doe', 'AN146')
+st4 = Student('Female', 23, 'Jane', 'Smith', 'AN147')
+st5 = Student('Male', 21, 'Peter', 'Parker', 'AN148')
+st6 = Student('Female', 22, 'Mary', 'Jane', 'AN149')
+st7 = Student('Male', 24, 'Bruce', 'Wayne', 'AN150')
+st8 = Student('Female', 26, 'Diana', 'Prince', 'AN151')
+st9 = Student('Male', 25, 'Clark', 'Kent', 'AN152')
+st10 = Student('Female', 28, 'Lois', 'Lane', 'AN153')
+st11 = Student('Male', 27, 'Tony', 'Stark', 'AN154')
+
+gr = Group('PD1')
+students = [st1, st2, st3, st4, st5, st6, st7, st8, st9, st10, st11]
+
+for stdt in students:
+    try:
+        gr.add_student(stdt)
+    except GroupFullError as e:
+        print(f"Error: {e}")
+
+print(gr)
