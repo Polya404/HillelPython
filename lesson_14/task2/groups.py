@@ -1,4 +1,4 @@
-from task_14.task2.exception import GroupFullError
+from lesson_14.task2.exception import GroupFullError
 
 
 class Group:
