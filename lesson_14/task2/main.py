@@ -1,6 +1,6 @@
-from lesson_14.task2.exception import GroupFullError
-from lesson_14.task2.groups import Group
-from lesson_14.task2.people import Student
+from exception import GroupFullError
+from groups import Group
+from people import Student
 
 st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
 st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
